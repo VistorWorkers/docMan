@@ -1,5 +1,5 @@
 <template>
-    <div class="page">
+    <div class="doc-man-container login-page">
         <img src="~@assets/img/logo-airfunc.png" class="logo"/>
         <div class="login-container">
             <h5 class="login-title">
@@ -23,7 +23,12 @@
 
                 </mu-text-field>
                 <mu-form-item>
-                    <mu-button class="login-button" color="primary">登录</mu-button>
+                    <mu-button class="login-button"
+                               color="primary"
+                               @click="handleLogin"
+                    >
+                        登录
+                    </mu-button>
                 </mu-form-item>
             </mu-form>
         </div>
@@ -42,17 +47,21 @@
                 }
 
             }
+        },
+        methods:{
+            // 登录接口请求
+            handleLogin(){
+                this.$router.push('/index')
+            }
         }
     }
 </script>
 
 <style lang="stylus" scoped>
-    @import "~@assets/styles/mixins.styl"
     @import "~@assets/styles/variable.styl"
-    .page
-        fullPage()
+    .login-page
         background-image url("~@assets/img/sign_bg.svg")
-        background-color #fafafa
+        background-color $themeBgColor
         background-repeat no-repeat
         background-size cover
         .logo
